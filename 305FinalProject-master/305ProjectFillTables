@@ -1,0 +1,456 @@
+Create Statements : 
+
+CREATE SCHEMA 'imdb';
+
+CREATE TABLE Movie(
+    movieID INTEGER NOT NULL,
+    genre VARCHAR(50),
+    movieName VARCHAR(255),
+    releaseDate DATE,
+    rating DOUBLE,
+    duration TIME,
+    CHECK(rating <= 10 AND rating >= 0),
+    PRIMARY KEY(movieId)
+)
+
+CREATE TABLE person(
+	ID INTEGER NOT NULL,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    age INTEGER(255),
+    profession VARCHAR(255),
+    
+    CHECK(profession IN ("Actor","Director","Producer")),
+    PRIMARY KEY (id)
+)
+
+CREATE TABLE distributor(
+	ID INTEGER NOT NULL,
+    distributorName VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    
+    PRIMARY KEY (id)
+)
+
+CREATE TABLE awards(
+	ID INTEGER NOT NULL,
+    awardName VARCHAR(255) NOT NULL,
+    awardDate DATE,
+    awardeeID INTEGER NOT NULL,
+    
+    PRIMARY KEY (ID),
+    FOREIGN KEY (awardeeID) REFERENCES person(ID)
+)
+
+CREATE TABLE casted(
+	ID INTEGER NOT NULL,
+    movieID INTEGER NOT NULL,
+    casteeID INTEGER NOT NULL,
+    
+    PRIMARY KEY (ID),
+    FOREIGN KEY (casteeID) REFERENCES person(ID),
+    FOREIGN KEY (movieID) REFERENCES movieID(ID)
+)
+
+CREATE TABLE produced(
+	ID INTEGER NOT NULL,
+    movieID INTEGER NOT NULL,
+    producerID INTEGER NOT NULL,
+    
+    PRIMARY KEY (ID),
+    FOREIGN KEY (produerID) REFERENCES person(ID),
+    FOREIGN KEY (movieID) REFERENCES movieID(ID)
+)
+CREATE TABLE directed(
+	ID INTEGER NOT NULL,
+    movieID INTEGER NOT NULL,
+    directorID INTEGER NOT NULL,
+    
+    PRIMARY KEY (ID),
+    FOREIGN KEY (directorID) REFERENCES person(ID),
+    FOREIGN KEY (movieID) REFERENCES movieID(ID)
+)
+
+CREATE TABLE distributed(
+	ID INTEGER NOT NULL,
+    movieID INTEGER NOT NULL,
+    distributorID INTEGER NOT NULL,
+    
+    PRIMARY KEY (ID),
+    FOREIGN KEY (distributorID) REFERENCES distributor(ID),
+    FOREIGN KEY (movieID) REFERENCES movieID(ID)
+)
+
+----------------------------------------------------------------------------------
+
+Fill tables: 
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES()
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES()
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES()
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES()
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES()
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES()
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES()
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES()
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES()
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES()
+
+----------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(1, 'Drama', 'The Shawshank Redemption', "1994-11-14", 9.3, 112);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(1, 'Tim', 'Robbins', 60, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(2, 'Frank', 'Darabont', 59, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(3, 'Niki', 'Marvin', 66, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(1, 'Columbia Pictures', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(1, 'Best Picture', 1994, 3);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(1, 1, 1);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(1, 1, 3);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(1, 1, 2);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(1, 1, 1);
+
+--------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(2, 'Crime', 'The Godfather', "1972-03-24", 9.2, 148);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(4, 'Marlon', 'Brando', 80, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(5, 'Francis Ford', 'Coppola', 79, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(6, 'Albert', 'Ruddy', 88, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(2, 'Paramount Pictures', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(2, 'Best Picture', 1973, 6);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(2, 2, 4);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(2, 2, 6);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(2, 2, 5);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(2, 2, 2);
+
+---------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(3, 'Crime', 'The Godfather: Part II', "1974-12-20", 9.0, 202);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(7, 'Al', 'Pacino', 78, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(9, 'Gray', 'Frederickson', 81, 'Producer');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(3, 'Best Picture', 1975, 5);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(3, 3, 7);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(3, 3, 9);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(3, 3, 5);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(3, 3, 2);
+
+-------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(4, 'Action', 'The Dark Knight', "2008-07-18", 9.0, 212);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(10, 'Christian', 'Bale', 44, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(11, 'Christopher', 'Nolan', 48, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(12, 'Charles', 'Roven', 69, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(4, 'Warner Brothers', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(4, 'Best Performance', 2009, 10);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(4, 4, 10);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(4, 4, 12);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(4, 4, 11);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(4, 4, 4);
+
+---------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(5, 'Crime', '12 Angry Men', "1957-04-06", 8.9, 96);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(13, 'Henry', 'Fonda', 77, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(14, 'Sidney', 'Lumet', 86, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(15, 'Reginald', 'Rose', 82, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(5, 'MGM', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(5, 'Best Picture', 1958, 13);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(5, 5, 13);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(5, 5, 15);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(5, 5, 14);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(5, 5, 5);
+
+-------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(6, 'Biography', "Schindler's List", "1994-02-04", 8.9, 195);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(16, 'Liam', 'Neeson', 66,'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(17, 'Steven', 'Spielberg', 71, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(18, 'Gerald', 'Molen', 83, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(6, 'Universal Pictures', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(6, 'Best Picture', 1994, 16);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(6, 6, 16);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(6, 6, 18);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(6, 6, 17);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(6, 6, 6);
+
+-------------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(7, 'Action', 'The Lord of the Rings: The return of the King', "2003-12-17", 8.9, 201);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(19, 'Elijah', 'Wood', 37, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(20, 'Peter', 'Jackson', 57, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(21, 'Barrie', 'Osborne', 74, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(7, 'New Line Cinema', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(7, 'Best Picture', 2004, 21);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(7, 7, 19);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(7, 7, 21);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(7, 7, 20);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(7, 7, 7);
+
+-----------------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(8, 'Crime', 'Pulp Fiction', "1994-10-14", 8.9, 154);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(22, 'John', 'Travolta', 64, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(23, 'Quentin', 'Tarantino', 55, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(24, 'Lawrence', 'Bender', 61, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(8, 'Miramax', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(8, 'Best Writing, Screenplay Written Directly for the Screen', 1995, 23);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(8, 8, 22);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(8, 8, 24);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(8, 8, 23);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(8, 8, 8);
+
+---------------------------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(9, 'Western', 'The Good, the Bad and the Ugly', "1967-12-29", 8.9, 178);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(25, 'Clint', 'Eastwood', 88, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(26, 'Segio', 'Leon', 60, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(27, 'Alberto', 'Grimaldi', 93, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(9, 'United Artists', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(9, 'Best Action Proformance', 1968, 25);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(9, 9, 25);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(9, 9, 27);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(9, 9, 26);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(9, 9, 9);
+
+-----------------------------------------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(10, 'Drama', 'Fight Club', "1999-10-15", 8.8, 139);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(28, 'Brad', 'Pitt', 54, 'Actor');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(29, 'David', 'Fincher', 56, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(30, 'Cean', 'Chaffin', 61, 'Producer');
+
+INSERT INTO	distributor(ID, distributorName, location)
+VALUES(10, '20th Century Fox', 'California');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(10, 'Best Director', 1999, 29);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(10, 10, 28);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(10, 10, 30);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(10, 10, 29);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(10, 10, 10);
+
+-----------------------------------------------------------------------------------------------------------------
+
+INSERT INTO Movie(movieID, genre, movieName, releaseDate, rating, duration)
+VALUES(11, 'Drama', 'Gran Torino', "2008-10-15", 8.1, 120);
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(31, 'Bill', 'Gerber', 51, 'Director');
+
+INSERT INTO person(ID, firstName, lastName, age, profession)
+VALUES(32, 'Nick', 'Schenk', 61, 'Producer');
+
+INSERT INTO awards(ID, awardName, awardDate, awardeeID)
+VALUES(11, 'Best Drama Director', 2009, 29);
+
+INSERT INTO casted(ID, movieID, casteeID)
+VALUES(11, 11, 25);
+
+INSERT INTO produced(ID, movieID, producerID)
+VALUES(11, 11, 32);
+
+INSERT INTO directed(ID, movieID, directorID)
+VALUES(11, 11, 31);
+
+INSERT INTO distributed(ID, movieID, distributorID)
+VALUES(11, 11, 10);

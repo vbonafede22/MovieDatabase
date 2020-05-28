@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #37393d;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MoreInfoController">
+   <children>
+      <Text fx:id="nameText" layoutX="82.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the movie" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri Bold" size="37.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#0022ff" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text fx:id="releasedText" fill="WHITE" layoutX="82.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Released :  ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fx:id="genreText" fill="WHITE" layoutX="82.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre: ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fx:id="ratingText" fill="WHITE" layoutX="82.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating : ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fx:id="durationText" fill="WHITE" layoutX="82.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration : ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fx:id="castText" fill="WHITE" layoutX="82.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cast : ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fx:id="directorsText" fill="WHITE" layoutX="81.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Directors : ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fx:id="producersText" fill="WHITE" layoutX="81.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producers : ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text fx:id="distributorsText" fill="WHITE" layoutX="81.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distributors : ">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Button layoutX="13.0" layoutY="355.0" mnemonicParsing="false" onAction="#closeWindow" style="-fx-background-color: #2a4170; -fx-text-fill: #FFFFFF;" text="Close" />
+      <HBox fx:id="castBox" layoutX="138.0" layoutY="189.0" prefHeight="42.0" prefWidth="432.0" />
+      <HBox fx:id="directorBox" layoutX="180.0" layoutY="226.0" prefHeight="31.0" prefWidth="407.0" />
+      <HBox fx:id="producerBox" layoutX="187.0" layoutY="259.0" prefHeight="35.0" prefWidth="400.0" snapToPixel="false" />
+   </children>
+</AnchorPane>
